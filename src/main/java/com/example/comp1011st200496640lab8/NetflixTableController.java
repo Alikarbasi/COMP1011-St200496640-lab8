@@ -86,6 +86,9 @@ public class NetflixTableController implements Initializable {
                     tableView.getItems().add(show);
                     numLabel.setText("Number of shows: " + tableView.getItems().size());
                 }
+                else{
+                    tableView.getItems().add(show);
+                }
 //                tableView.getItems().add(show);
 //                numLabel.setText("Number of shows: " + tableView.getItems().size());
             }
@@ -94,6 +97,9 @@ public class NetflixTableController implements Initializable {
                 if( show.getRating().equals(selectRatingComboBox.getValue())){
                     tableView.getItems().add(show);
                     numLabel.setText("Number of shows: " + tableView.getItems().size());
+                }
+                else{
+                    tableView.getItems().add(show);
                 }
 //                tableView.getItems().add(show);
 //                numLabel.setText("Number of shows: " + tableView.getItems().size());
