@@ -29,7 +29,7 @@ public class Netflix {
     }
 
     public static List<String> getValidType(){
-        return Arrays.asList("Movie","TvShow");
+        return Arrays.asList("Movie","TV Show");
     }
     public String getType() {
         return type;
