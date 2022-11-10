@@ -62,16 +62,10 @@ public class NetflixTableController implements Initializable {
 
         allShows = DBUtility.getShowsFromDB();
 
-//        selectRatingComboBox.valueProperty().addListener((obs, oldValue, ratingSelected) -> {
-//            tableView.getItems().clear();
-//            for (Netflix show : allShows) {
-//                if (show.getRating().equals(ratingSelected)) {
-//                    tableView.getItems().add(show);
-//
-//                }
-//            }
-//            numLabel.setText("The number of shows is: " + tableView.getItems().size());
-//        });
+        selectRatingComboBox.valueProperty().addListener((obs, oldValue, ratingSelected) -> {
+            tableView.getItems().clear();
+            filter();
+        });
         numLabel.setText("The number of shows is: " + tableView.getItems().size());
     }
 
@@ -79,33 +73,45 @@ public class NetflixTableController implements Initializable {
     private void filter() {
 
         tableView.getItems().clear();
+
         for (Netflix show : allShows) {
-
-            if (movieCheckBox.isSelected() && show.getType().equals(movieCheckBox.getText())) {
-                if( show.getRating().equals(selectRatingComboBox.getValue())){
+            if(selectRatingComboBox.getValue() == null) {
+                if (movieCheckBox.isSelected() && show.getType().equals(movieCheckBox.getText())) {
+                    // if( show.getRating().equals(selectRatingComboBox.getValue())){
                     tableView.getItems().add(show);
-                    numLabel.setText("Number of shows: " + tableView.getItems().size());
-                }
-                else{
-                    tableView.getItems().add(show);
-                }
+//                    numLabel.setText("Number of shows: " + tableView.getItems().size());
+//                }
+//                else{
+//                    tableView.getItems().add(show);
+//                }
 //                tableView.getItems().add(show);
 //                numLabel.setText("Number of shows: " + tableView.getItems().size());
-            }
-            if (tvShowCheckBox.isSelected() && show.getType().equals(tvShowCheckBox.getText())) {
+                }
+                if (tvShowCheckBox.isSelected() && show.getType().equals(tvShowCheckBox.getText())) {
 
-                if( show.getRating().equals(selectRatingComboBox.getValue())){
+                    // if( show.getRating().equals(selectRatingComboBox.getValue())) {
+//                    tableView.getItems().add(show);
+//                    numLabel.setText("Number of shows: " + tableView.getItems().size());
+//                }
+//                else{
                     tableView.getItems().add(show);
-                    numLabel.setText("Number of shows: " + tableView.getItems().size());
-                }
-                else{
-                    tableView.getItems().add(show);
-                }
+                    //}
 //                tableView.getItems().add(show);
 //                numLabel.setText("Number of shows: " + tableView.getItems().size());
-            } else {
-                numLabel.setText("Number of shows: " + tableView.getItems().size());
+
+//            } else {
+//                numLabel.setText("Number of shows: " + tableView.getItems().size());
+                }
+            }else{
+                if(movieCheckBox.isSelected() && show.getType().equals(movieCheckBox.getText())&& show.getRating().equals(selectRatingComboBox.getValue())){
+                    tableView.getItems().add(show);
+                }
+                if (tvShowCheckBox.isSelected() && show.getType().equals(tvShowCheckBox.getText()) && show.getRating().equals(selectRatingComboBox.getValue())){
+                    tableView.getItems().add(show);
+
+                }
             }
+            numLabel.setText("Number of shows: " + tableView.getItems().size());
         }
     }
 }
