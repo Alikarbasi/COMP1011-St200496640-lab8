@@ -66,7 +66,7 @@ public class NetflixTableController implements Initializable {
             tableView.getItems().clear();
             filter();
         });
-        numLabel.setText("The number of shows is: " + tableView.getItems().size());
+        numLabel.setText(" total number of shows : " + tableView.getItems().size());
     }
 
     @FXML

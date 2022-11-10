@@ -1,10 +1,30 @@
-#label{
-    -fx-text-color:red;
-   -fx-font-weight:bold;
-}
 .root{
-    -fx-background-color:grey ;
+-fx-background-color:#b3daff;
 }
+#header{
+-fx-font-size:30px;
+-fx-font-weight:bold;
+}
+.table-view .column-header{
+     -fx-background-color:#2c5a5a;
+ }
+ .table-view .column-header .label{
+ 	-fx-text-fill:white;
+ }
+ .table-row-cell:odd {
+ 	-fx-background-color: #dcfefd;
+ }
+
+
+.combo-box .combo-box-popup .list-cell:hover {
+   -fx-text-fill: yellow ;
+   -fx-background-color: #2c5a5a ;
+ }
+
+
+
+
+
 
 
 
